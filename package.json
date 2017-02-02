@@ -1,5 +1,5 @@
 {
-	"name": "xlsx",
+	"name": "iei-xlsx",
 	"version": "0.8.1",
 	"author": "sheetjs",
 	"description": "Excel (XLSB/XLSX/XLSM/XLS/XML) and ODS spreadsheet parser and writer",
