@@ -1761,12 +1761,7 @@ function shift_range_xls(cell, range) {
 
 var OFFCRYPTO = {};
 var make_offcrypto = function(O, _crypto) {
-	var crypto;
-	if(typeof _crypto !== 'undefined') crypto = _crypto;
-	else if(typeof require !== 'undefined') {
-		try { crypto = require('cry'+'pto'); }
-		catch(e) { crypto = null; }
-	}
+	var crypto = require('crypto');
 
 	O.rc4 = function(key, data) {
 		var S = new Array(256);
@@ -11073,13 +11068,6 @@ var XLSRecordEnum = {
 	0x0000: {}
 };
 
-
-/* Helper function to call out to ODS parser */
-function parse_ods(zip, opts) {
-	if(typeof module !== "undefined" && typeof require !== 'undefined' && typeof ODS === 'undefined') ODS = require('./od' + 's');
-	if(typeof ODS === 'undefined' || !ODS.parse_ods) throw new Error("Unsupported ODS");
-	return ODS.parse_ods(zip, opts);
-}
 function fix_opts_func(defaults) {
 	return function fix_opts(opts) {
 		for(var i = 0; i != defaults.length; ++i) {
